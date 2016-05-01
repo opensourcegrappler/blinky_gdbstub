@@ -45,7 +45,7 @@ LIBS		= c gcc hal pp phy net80211 lwip wpa main
 CFLAGS		= -Og -g -Wpointer-arith -Wundef  -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals  -D__ets__ -DICACHE_FLASH
 
 # linker flags used to generate the main object file
-LDFLAGS		= -nostdlib -Wl,--no-check-sections -u call_user_start -Wl,-static -ggdb -Lgdbstub -lgdbstub
+LDFLAGS		= -nostdlib -Wl,--no-check-sections -u call_user_start -Wl,-static -ggdb -g
 
 
 # linker script used for the above linkier step
@@ -122,11 +122,11 @@ $(FW_BASE)/%.bin: $(TARGET_OUT) | $(FW_BASE)
 	$(vecho) "FW $(FW_BASE)/"
 	$(Q) $(ESPTOOL) elf2image -o $(FW_BASE)/ $(TARGET_OUT)
 
-$(TARGET_OUT): $(APP_AR)
+$(TARGET_OUT): $(APP_AR) $(GDB_LIB)
 	$(vecho) "LD $@"
-	$(Q) $(LD) -L$(SDK_LIBDIR) $(LD_SCRIPT) $(LDFLAGS) -Wl,--start-group $(LIBS) $(APP_AR) -Wl,--end-group -o $@
+	$(Q) $(LD) -L$(SDK_LIBDIR) $(LD_SCRIPT) $(LDFLAGS) -Wl,--start-group $(LIBS) $(APP_AR) $(GDB_LIB) -Wl,--end-group -o $@
 
-$(APP_AR): $(OBJ) $(GDB_LIB)
+$(APP_AR): $(OBJ)
 	$(vecho) "AR $@"
 	$(Q) $(AR) cru $@ $^
 
