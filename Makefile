@@ -35,7 +35,7 @@ GDB_LIB = gdbstub/libgdbstub.a
 GDB_OBJS = gdbstub/gdbstub.o gdbstub/gdbstub-entry.o
 
 # which modules (subdirectories) of the project to include in compiling
-MODULES		= driver user gdbstub
+MODULES		= driver user
 EXTRA_INCDIR    = include
 
 # libraries used in this project, mainly provided by the SDK
