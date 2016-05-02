@@ -115,7 +115,7 @@ all: checkdirs $(TARGET_OUT) $(FW_FILE_1) $(FW_FILE_2)
 
 gdbstub/libgdbstub.a:
 	$(CC) -c gdbstub/gdbstub-entry.S $(CFLAGS) -o gdbstub/gdbstub-entry.o
-	$(CC) -c gdbstub/gdbstub.c $(CFLAGS) -o gdbstub/gdbstub.o
+	$(CC) -c gdbstub/gdbstub.c $(CFLAGS) -Iuser -o gdbstub/gdbstub.o
 	$(AR) cru gdbstub/libgdbstub.a $(GDB_OBJS)
 
 $(FW_BASE)/%.bin: $(TARGET_OUT) | $(FW_BASE)
