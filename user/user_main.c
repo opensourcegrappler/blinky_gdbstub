@@ -5,8 +5,6 @@
 #include "user_config.h"
 #include "../gdbstub/gdbstub.h"
 
-
-
 #define user_procTaskPrio        0
 #define user_procTaskQueueLen    1
 os_event_t    user_procTaskQueue[user_procTaskQueueLen];
