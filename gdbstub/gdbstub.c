@@ -9,6 +9,7 @@
 
 //#include "gdbstub.h"
 #include "ets_sys.h"
+#include "osapi.h"
 #include "eagle_soc.h"
 #include "c_types.h"
 #include "gpio.h"
