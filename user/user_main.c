@@ -15,6 +15,9 @@ static volatile os_timer_t some_timer;
 
 void some_timerfunc(void *arg)
 {
+
+    gdbstub_do_break();
+    
     //Do blinky stuff
     if (GPIO_REG_READ(GPIO_OUT_ADDRESS) & BIT2)
     {
