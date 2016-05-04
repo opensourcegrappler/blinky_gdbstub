@@ -16,17 +16,17 @@ The project is intended for use with the
 
 2. Build and flash:
 
-```
-make clean
-make
-make flash
-```
+   ```
+   make clean
+   make
+   make flash
+   ```
 
 3. Restart the esp8266
 
 4. Start gdb
-```
-xtensa-lx106-elf-gdb -x gdbstub/gdbcmds
-```
-This assumes your esp8266 is connected to /dev/ttyUSB0.
+   ```
+   xtensa-lx106-elf-gdb -x gdbstub/gdbcmds
+   ```
+   This assumes your esp8266 is connected to /dev/ttyUSB0.
 
