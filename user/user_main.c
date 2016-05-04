@@ -26,6 +26,7 @@ void some_timerfunc(void *arg)
         //Set GPIO2 to HIGH
         gpio_output_set(BIT2, 0, BIT2, 0);
     }
+
 }
 
 //Do nothing function
@@ -48,9 +49,15 @@ user_init()
     //Set GPIO2 low
     gpio_output_set(0, BIT2, BIT2, 0);
 
+    // Initialize UART0
+    uart_div_modify(0, UART_CLK_FREQ / 115200);
+    
     //Initialize gdbstub
     gdbstub_init();
 
+    gdbstub_do_break();
+
+    
     //Disarm timer
     os_timer_disarm(&some_timer);
 
