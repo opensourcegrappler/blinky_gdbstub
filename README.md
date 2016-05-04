@@ -1,6 +1,6 @@
 #gdbstub_blinky
 
-This project builds on the [source code
+This esp8266 project builds on the [source code
 example](https://github.com/esp8266/source-code-examples) for a blinky
 project and the
 [esp-gdbstub](https://github.com/espressif/esp-gdbstub) from
